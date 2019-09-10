@@ -1,0 +1,10 @@
+Ashish Motyala
+RUID: 172006692
+
+Report
+
+-IMPLEMENTED EXTRA CREDIT-
+
+This project was mainly to simplify the way an L1 cache is supposed to operate using C programming. I implemented a simulated cache using an array of Sets, which itself contained blocks of data. First, I made a global struct that represented a block of the set. This contained a variable to indicate whether it was valid or not, an unsigned long variable that stored the tag and also a counter which counts how many times this specific block is used. The counter is used so that I could keep track of which block was used the least frequently used in order to replace when we use the LRU replacement policy. After, we have another struct called cSet, which represents a set in the Cache. The Set contains a struct block and the index in the set of which block needs to be replaced. With these two structs I simulated each cache as an array of struct sets, which contained the struct blocks in each set. To keep track of all the other data I just used Int and Char* variables to keep track of the numbers and strings. There were no any other special data structures used.
+
+The prefetch we see improves the number of hits we get over all while also increasing the memory reads. The prefetch only runs on misses, but everytime it needs to read in memory, it reads in two blocks instead of one. From this we see the increased memory reads. However, since there are more blocks in your cache, the number of hits goes up as the probability that a piece of memory is now in the cache is doubled. This happens because of spatial locality. If you use prefetch there is more use of spatial locality in your cache so the number of hits will be much higher.
